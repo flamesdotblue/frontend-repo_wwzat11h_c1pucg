@@ -1,24 +1,27 @@
 import { motion } from 'framer-motion';
 import { Users, Briefcase, ChefHat } from 'lucide-react';
 
-const stories = [
+const cards = [
   {
     icon: Users,
-    title: 'Personal celebrations, made memorable.',
-    desc: 'From birthdays to intimate dinners — curated menus, seamless bookings, and delightful service.',
-    accent: 'from-[#E8DCC7] to-white',
+    title: 'Individuals',
+    headline: 'Home celebrations with fine detail.',
+    desc: 'Warm lighting, refined table décor, and curated trays — effortlessly booked.',
+    accent: 'from-[#E7DCC7] to-white',
   },
   {
     icon: Briefcase,
-    title: 'Elevate your corporate events effortlessly.',
-    desc: 'Board meetings, offsites, and launches — reliable partners, punctual service, and polished presentation.',
-    accent: 'from-[#C6A664] to-[#F8F8F8]',
+    title: 'Corporate',
+    headline: 'Conference‑ready, on‑brand service.',
+    desc: 'Sleek stands, punctual delivery, and polished presentation for every meeting.',
+    accent: 'from-[#C9A86A] to-[#F5F5F5]',
   },
   {
     icon: ChefHat,
-    title: 'Empower your catering business with technology.',
-    desc: 'Smart scheduling, real-time tracking, and effortless payouts to grow your brand.',
-    accent: 'from-white to-[#E8DCC7]',
+    title: 'Caterers',
+    headline: 'A smart kitchen command center.',
+    desc: 'Digital orders, live tracking, and menu management — all in one place.',
+    accent: 'from-white to-[#E7DCC7]',
   },
 ];
 
@@ -26,34 +29,35 @@ export default function UserStories() {
   return (
     <section className="relative mx-auto max-w-7xl px-6 py-16">
       <div className="mb-8 text-center">
-        <h2 className="text-3xl font-semibold text-[#1C1C1C] sm:text-4xl">Designed for Every Role</h2>
-        <p className="mt-3 text-neutral-600">One connected ecosystem for individuals, corporates, and caterers.</p>
+        <h2 className="text-3xl font-semibold text-[#2C2C2C] sm:text-4xl">A 3D World for Every Role</h2>
+        <p className="mt-3 text-neutral-600">Isometric scenes that portray how each user thrives in the ecosystem.</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
-        {stories.map((s, i) => (
+        {cards.map((c, i) => (
           <motion.div
-            key={i}
-            initial={{ y: 16, opacity: 0 }}
+            key={c.title}
+            initial={{ y: 18, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/50 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.06)] backdrop-blur"
+            transition={{ duration: 0.6, delay: i * 0.12 }}
+            className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/60 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.06)] backdrop-blur"
           >
-            <div className={`pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${s.accent} opacity-60 blur-2xl`} />
+            <div className={`pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${c.accent} opacity-60 blur-2xl`} />
             <div className="flex items-start gap-4">
-              <div className="rounded-2xl bg-gradient-to-br from-white to-[#F8F8F8] p-3 text-[#1C1C1C] ring-1 ring-white/60">
-                <s.icon size={24} />
+              <div className="rounded-2xl bg-gradient-to-br from-white to-[#F5F5F5] p-3 text-[#2C2C2C] ring-1 ring-white/60">
+                <c.icon size={22} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-[#1C1C1C]">{s.title}</h3>
-                <p className="mt-2 text-sm text-neutral-600">{s.desc}</p>
+                <h3 className="text-sm font-semibold tracking-wide text-[#2C2C2C]">{c.title}</h3>
+                <p className="mt-1 text-lg font-medium text-[#2C2C2C]">{c.headline}</p>
+                <p className="mt-2 text-sm text-neutral-600">{c.desc}</p>
               </div>
             </div>
 
-            {/* Tilt on hover illusion */}
-            <div className="mt-6 h-40 rounded-2xl bg-gradient-to-br from-white/70 to-[#F8F8F8]/60 p-3 ring-1 ring-white/50">
-              <div className="h-full w-full rounded-xl bg-[linear-gradient(120deg,rgba(198,166,100,0.18)_0%,transparent_40%),radial-gradient(circle_at_70%_30%,rgba(232,220,199,0.55),transparent_50%)] shadow-inner transition-transform duration-300 group-hover:rotate-1 group-hover:scale-[1.02]" />
+            {/* Faux isometric mini-scene */}
+            <div className="mt-6 h-44 rounded-2xl bg-gradient-to-br from-white/70 to-[#F5F5F5]/60 p-3 ring-1 ring-white/60">
+              <div className="h-full w-full rounded-xl bg-[linear-gradient(120deg,rgba(201,168,106,0.18)_0%,transparent_40%),radial-gradient(circle_at_70%_30%,rgba(231,220,199,0.55),transparent_55%)] shadow-inner transition-transform duration-300 group-hover:rotate-1 group-hover:scale-[1.02]" />
             </div>
           </motion.div>
         ))}
